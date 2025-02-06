@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <h1>New Identification Task</h1>
+  <form [formGroup]="observationForm" (ngSubmit)="onSubmit()" class="mt-5">
+    <div class="form-group">
+      <label for="observation">Select an Observation:</label>
+      <select id="observation" class="form-select" formControlName="observation">
+        <option *ngFor="let obs of observations" [value]="obs.id">
+          Observation {{ obs.id }} - ({{ obs.gps_location.latitude }}, {{ obs.gps_location.longitude }}) - {{obs.date | date:'yyy-MM-dd HH:mm'}}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Task</button>
+  </form>
+</div>

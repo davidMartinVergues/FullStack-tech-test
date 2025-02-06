@@ -1,0 +1,9 @@
+.pending{
+  color: red;
+}
+.inprogress{
+  color: yellow;
+}
+.completed{
+  color: green;
+}

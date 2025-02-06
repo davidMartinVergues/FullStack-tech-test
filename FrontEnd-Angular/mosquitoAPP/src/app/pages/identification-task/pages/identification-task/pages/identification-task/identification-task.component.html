@@ -1,0 +1,60 @@
+
+
+<div class="container mt-5">
+
+  <div class="mb-5">
+    <identification-task-form></identification-task-form>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="filterStatus" class="form-label">Filter by:</label>
+    <select id="filterStatus" class="form-select w-auto" (change)="filterByStatus($event)">
+      <option value="">All (No Filter)</option>
+      <option value="0">Pending</option>
+      <option value="1">In Progress</option>
+      <option value="2">Completed</option>
+    </select>
+  </div>
+
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="user_observation">
+      <th mat-header-cell *matHeaderCellDef> observation </th>
+      <td mat-cell *matCellDef="let element"> Nº {{element.user_observation.id}} ({{element.user_observation.date | date : "yyyy-mm-yy HH:mm"}}) </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> status </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="element.status =='0'? 'pending':element.status =='1'? 'inprogress':'completed'"> {{ element.status === '0' ? 'Pending' : element.status === '1' ? 'In Progress' : 'Completed' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> action </th>
+      <td mat-cell *matCellDef="let element">
+
+        <div class="d-flex flex-row justify-content-around align-items-center ">
+          <div>
+            <button  mat-icon-button (click)="deleteIdentification(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <div>
+            <a target="_blank"href="{{element.user_observation.mosquito_img}}">See image</a>
+          </div>
+          <mat-slide-toggle (change)="changeStatusToComplete($event, element)" [checked]="element.status=='2'? true:false ">
+            <span *ngIf="element.status == '2'">Completed</span>
+          </mat-slide-toggle>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+</div>

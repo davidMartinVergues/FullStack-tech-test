@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <h1>Add New Observation</h1>
+  <form [formGroup]="observationForm" (ngSubmit)="onSubmit()" class="mt-5">
+    <div class="form-group">
+      <label for="latitude">Latitude</label>
+      <input type="text" class="form-control" id="latitude" formControlName="latitude" placeholder="Enter latitude">
+    </div>
+    <div class="form-group">
+      <label for="longitude">Longitude</label>
+      <input type="text" class="form-control" id="longitude" formControlName="longitude" placeholder="Enter longitude">
+    </div>
+    <div class="form-group">
+      <label for="mosquitoImage">Mosquito Image</label>
+      <input type="file" class="form-control-file" id="mosquitoImage" (change)="onFileSelected($event)">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

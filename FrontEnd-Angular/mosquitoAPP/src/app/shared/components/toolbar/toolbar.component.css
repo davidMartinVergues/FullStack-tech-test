@@ -1,0 +1,234 @@
+/* ================================ */
+/*        ESTILOS GENERALES         */
+/* ================================ */
+
+mat-icon {
+  color: white;
+  overflow: visible;
+}
+
+mat-toolbar {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #004a9f;
+  position: fixed;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  height: 64px;
+}
+
+/* ================================ */
+/*        MENÚ HAMBURGUESA          */
+/* ================================ */
+
+#nav-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100px; /* 🔥 Reducido para solo iconos */
+  height: 100vh;
+  background: #004a9f;
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000; /* Asegura que esté sobre el backdrop */
+  align-items: center; /* 🔥 Centra los iconos */
+}
+
+/* Mostrar el menú cuando está activo */
+#nav-menu.open {
+  left: 0;
+  display: flex;
+}
+
+/* ================================ */
+/*  BACKDROP PARA CERRAR EL SIDEBAR AL HACER CLIC FUERA */
+/* ================================ */
+
+#backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* Mostrar el backdrop cuando el menú esté abierto */
+#nav-menu.open + #backdrop {
+  display: block;
+}
+
+/* ================================ */
+/*  BOTONES DENTRO DEL SIDEBAR      */
+/* ================================ */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 0; /* 🔥 Ajustado el padding */
+}
+
+/* 🔥 Ocultar el texto dentro del sidebar */
+.sidebar-nav span {
+  display: none;
+}
+
+/* 🔥 Centrar los iconos en el sidebar */
+.sidebar-nav mat-list-item {
+  width: 60px; /* 🔥 Reducido para solo iconos */
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* 🔥 Solo iconos en el sidebar */
+.sidebar-nav .nav-link {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 🔥 Ajuste de tamaño y alineación de iconos */
+.sidebar-nav mat-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón hamburguesa en la barra */
+#menu-toggle-btn {
+  display: none;
+}
+
+/* Botón de cerrar menú dentro del menú */
+#close-menu-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: white;
+  display: none;
+}
+
+/* Cuando el menú está abierto, mostrar la "X" */
+#nav-menu.open #close-menu-btn {
+  display: block;
+}
+
+/* ================================ */
+/*  ALINEAR BOTONES DEL TOOLBAR    */
+/* ================================ */
+
+#toolbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: 100%;
+}
+
+/* ================================ */
+/*  ≤ 1199px → SOLO BURGER MENU    */
+/* ================================ */
+
+@media (max-width: 1199px) {
+  #menu-toggle-btn {
+    display: flex;
+  }
+
+  .toolbar-nav {
+    display: none !important;
+  }
+
+  #nav-menu {
+    display: block;
+  }
+
+  .sidebar-nav {
+    display: flex !important;
+  }
+}
+
+/* ================================ */
+/*  ≥ 1200px → MOSTRAR NAV EN TOOLBAR */
+/* ================================ */
+
+@media (min-width: 1200px) {
+  #menu-toggle-btn {
+    display: none !important;
+  }
+
+  #toolbar-actions {
+    display: none;
+  }
+
+  #nav-menu {
+    display: none !important;
+  }
+
+  mat-toolbar {
+    padding: 15px 50px;
+  }
+
+  /* Mostrar la navegación directamente en el toolbar */
+  .toolbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .toolbar-nav mat-list-item {
+    width: auto;
+  }
+
+  .toolbar-nav .nav-link {
+    padding: 8px 15px;
+  }
+}
+
+/* ================================ */
+/*  ESTILOS DE NAVEGACIÓN          */
+/* ================================ */
+
+.nav-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+mat-list-item button,
+mat-list-item a {
+  color: white;
+}
