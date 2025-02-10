@@ -29,6 +29,11 @@ The application is dockerized, simply run the following command in the project r
 ```
 docker-compose up --build
 ```
+and access to the app on this url : 
+
+```
+http://localhost:4242
+```
 
 This will launch both the backend and frontend in Docker containers.
 
