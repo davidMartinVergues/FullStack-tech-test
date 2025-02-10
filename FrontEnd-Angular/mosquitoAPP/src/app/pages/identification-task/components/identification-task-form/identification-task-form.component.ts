@@ -34,7 +34,11 @@ export class IdentificationTaskFormComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.getUserObservations();
 
+  }
+
+  getUserObservations(){
     this._userObservationService.getUserObservation().subscribe({
       next:(response)=>{
 
@@ -44,7 +48,6 @@ export class IdentificationTaskFormComponent implements OnInit {
 
       }
     })
-
   }
 
   onSubmit() {
@@ -56,6 +59,7 @@ export class IdentificationTaskFormComponent implements OnInit {
     formData.append('observation', this.observationForm.value.observation);
     this._identificationTaskService.newIdentificationTask(formData)
     this.observationForm.reset();
+    this.getUserObservations();
   }
 
 }

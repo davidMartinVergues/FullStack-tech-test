@@ -67,8 +67,6 @@ export class IdentificationTaskComponent implements OnInit{
   }
 
   changeStatusToComplete(event: any, element: any) {
-    const isChecked = event.checked;
-
 
     this._identificationTaskService.toggleToComplete(element.id).subscribe({
       next:(response)=>{

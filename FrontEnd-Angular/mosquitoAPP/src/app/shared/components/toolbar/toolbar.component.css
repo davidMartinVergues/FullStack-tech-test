@@ -1,6 +1,4 @@
-/* ================================ */
-/*        ESTILOS GENERALES         */
-/* ================================ */
+
 
 mat-icon {
   color: white;
@@ -22,15 +20,13 @@ mat-toolbar {
   height: 64px;
 }
 
-/* ================================ */
-/*        MENÚ HAMBURGUESA          */
-/* ================================ */
+
 
 #nav-menu {
   position: fixed;
   top: 0;
   left: -100%;
-  width: 100px; /* 🔥 Reducido para solo iconos */
+  width: 100px;
   height: 100vh;
   background: #004a9f;
   transition: left 0.3s ease-in-out;
@@ -38,19 +34,15 @@ mat-toolbar {
   flex-direction: column;
   padding-top: 60px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000; /* Asegura que esté sobre el backdrop */
-  align-items: center; /* 🔥 Centra los iconos */
+  z-index: 1000;
+  align-items: center;
 }
 
-/* Mostrar el menú cuando está activo */
 #nav-menu.open {
   left: 0;
   display: flex;
 }
 
-/* ================================ */
-/*  BACKDROP PARA CERRAR EL SIDEBAR AL HACER CLIC FUERA */
-/* ================================ */
 
 #backdrop {
   position: fixed;
@@ -63,30 +55,25 @@ mat-toolbar {
   display: none;
 }
 
-/* Mostrar el backdrop cuando el menú esté abierto */
 #nav-menu.open + #backdrop {
   display: block;
 }
 
-/* ================================ */
-/*  BOTONES DENTRO DEL SIDEBAR      */
-/* ================================ */
+
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 10px 0; /* 🔥 Ajustado el padding */
+  padding: 10px 0;
 }
 
-/* 🔥 Ocultar el texto dentro del sidebar */
 .sidebar-nav span {
   display: none;
 }
 
-/* 🔥 Centrar los iconos en el sidebar */
 .sidebar-nav mat-list-item {
-  width: 60px; /* 🔥 Reducido para solo iconos */
+  width: 60px;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -94,7 +81,6 @@ mat-toolbar {
   margin-bottom: 12px;
 }
 
-/* 🔥 Solo iconos en el sidebar */
 .sidebar-nav .nav-link {
   width: 100%;
   padding: 10px;
@@ -109,7 +95,6 @@ mat-toolbar {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* 🔥 Ajuste de tamaño y alineación de iconos */
 .sidebar-nav mat-icon {
   width: 40px;
   height: 40px;
@@ -119,12 +104,10 @@ mat-toolbar {
   justify-content: center;
 }
 
-/* Botón hamburguesa en la barra */
 #menu-toggle-btn {
   display: none;
 }
 
-/* Botón de cerrar menú dentro del menú */
 #close-menu-btn {
   position: absolute;
   top: 15px;
@@ -133,14 +116,10 @@ mat-toolbar {
   display: none;
 }
 
-/* Cuando el menú está abierto, mostrar la "X" */
 #nav-menu.open #close-menu-btn {
   display: block;
 }
 
-/* ================================ */
-/*  ALINEAR BOTONES DEL TOOLBAR    */
-/* ================================ */
 
 #toolbar-actions {
   display: flex;
@@ -150,9 +129,7 @@ mat-toolbar {
   height: 100%;
 }
 
-/* ================================ */
-/*  ≤ 1199px → SOLO BURGER MENU    */
-/* ================================ */
+
 
 @media (max-width: 1199px) {
   #menu-toggle-btn {
@@ -172,9 +149,7 @@ mat-toolbar {
   }
 }
 
-/* ================================ */
-/*  ≥ 1200px → MOSTRAR NAV EN TOOLBAR */
-/* ================================ */
+
 
 @media (min-width: 1200px) {
   #menu-toggle-btn {
@@ -193,7 +168,6 @@ mat-toolbar {
     padding: 15px 50px;
   }
 
-  /* Mostrar la navegación directamente en el toolbar */
   .toolbar-nav {
     display: flex !important;
     flex-direction: row !important;
@@ -214,9 +188,6 @@ mat-toolbar {
   }
 }
 
-/* ================================ */
-/*  ESTILOS DE NAVEGACIÓN          */
-/* ================================ */
 
 .nav-link {
   display: flex;

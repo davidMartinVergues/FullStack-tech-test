@@ -1,13 +1,11 @@
 <mat-toolbar>
   <div id="toolbar-actions">
-    <!-- Botón hamburguesa (solo aparece < 1024px) -->
     <button mat-icon-button id="menu-toggle-btn" (click)="toggleMenu()">
       <mat-icon *ngIf="!menuOpen">menu</mat-icon>
       <mat-icon *ngIf="menuOpen">close</mat-icon>
     </button>
   </div>
 
-  <!-- Navegación en el toolbar (visible ≥ 1024px) -->
   <mat-nav-list class="toolbar-nav">
     <mat-list-item>
       <a class="nav-link" href="user-observation">
@@ -24,13 +22,11 @@
     </mat-list-item>
   </mat-nav-list>
 
-  <!-- Menú hamburguesa para móvil (visible < 1024px) -->
   <div id="nav-menu" [class.open]="menuOpen">
     <button mat-icon-button id="close-menu-btn" (click)="toggleMenu()">
       <mat-icon>close</mat-icon>
     </button>
 
-    <!-- Navegación en el sidebar -->
     <mat-nav-list class="sidebar-nav">
       <mat-list-item>
         <a class="nav-link" href="user-observation">
